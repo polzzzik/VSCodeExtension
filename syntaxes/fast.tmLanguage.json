@@ -1,0 +1,105 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "FAST",
+    "scopeName": "source.fast",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#numbers"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.fast",
+                    "match": "//.*"
+                },
+                {
+                    "name": "comment.block.fast",
+                    "begin": "/\\*",
+                    "end": "\\*/",
+                    "name": "comment.block.fast"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.fast",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.fast",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.fast",
+                    "match": "\\b(if|else|for|def|let|then|return)\\b"
+                },
+                {
+                    "name": "keyword.other.fast",
+                    "match": "\\b(true|false|nil)\\b"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.fast",
+                    "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b(?=\\()"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.arithmetic.fast",
+                    "match": "[\\+\\-\\*\\/]"
+                },
+                {
+                    "name": "keyword.operator.comparison.fast",
+                    "match": "==|!=|<=|>=|<|>|===",
+                    "name": "keyword.operator.comparison.fast"
+                },
+                {
+                    "name": "keyword.operator.logical.fast",
+                    "match": "\\b(and|or|not)\\b"
+                },
+                {
+                    "name": "keyword.operator.assignment.fast",
+                    "match": "="
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.integer.fast",
+                    "match": "\\b\\d+\\b"
+                },
+                {
+                    "name": "constant.numeric.float.fast",
+                    "match": "\\b\\d+\\.\\d*\\b"
+                }
+            ]
+        }
+    }
+}
